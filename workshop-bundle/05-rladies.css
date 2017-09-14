@@ -1,0 +1,176 @@
+/* fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Lato|Oswald');
+
+body, h5, h6, .footer, .article-duration, .archive-item-link  {
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, .nav {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1.5px;
+}
+
+/* formatting the landing page- index.html */
+
+.center-image {
+    display: block;
+    margin: auto;
+}
+
+.intro {
+    margin: 25vh 0;
+}
+
+.intro > h1  {
+    color: #562457;
+    font-size: 12vh;
+    text-align: center;
+}
+
+.intro > h2 {
+    color: #181818;
+    font-size: 3vmin;
+    text-align: center;
+    overflow: auto;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0px;
+}
+
+/*changes to lithium theme*/
+
+.fa-rladies {
+  color: #88398A;
+}
+
+h1, h2, h3, h4 {
+  color: #88398A;
+}
+
+.header {
+  background: #88398A;
+  border-bottom: 1px solid #88398A;
+}
+
+.nav-links a {
+  color: #FFFFFF;
+}
+
+.nav-links a:hover {
+  color: #FFFFFF;
+}
+
+.article-title {
+  color: #88398A;
+}
+
+.article-content a {
+  border-bottom: 1px solid rgba(86, 36, 87, 0.5);
+  box-shadow: inset 0 -2px 0 rgba(86, 36, 87, 0.5);
+}
+
+.article-content a:hover,
+.article-content a:focus {
+  background: rgba(136, 57, 138, 0.3);
+}
+
+/*add bootstrap list groups */
+
+.list-group {
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+
+.list-group-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+/*add bootstrap button for form */
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #562457;
+    color: #D3D3D3;
+    font-family: 'Lato', sans-serif;
+}
+ 
+.btn:focus, 
+.btn:active:focus, 
+.btn.active:focus {
+    outline: 0 none;
+}
+
+.btn:hover {
+    color: #FFFFFF;
+}
+
+/* form formatting*/
+
+input {  
+  font-size: 15px;
+  font-family: 'Lato', sans-serif; 
+  display: block;
+  width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.boxsizingBorder {
+    font-size: 15px;
+  font-family: 'Lato', sans-serif; 
+  width:100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: #562457;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #562457;
+  opacity: 1;
+  font-family: 'Lato', sans-serif; 
+  font-size: 13px;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #562457;
+  opacity:  1;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px; 
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #562457;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px; 
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #562457;
+  font-family: 'Lato', sans-serif; 
+  font-size: 13px; 
+}

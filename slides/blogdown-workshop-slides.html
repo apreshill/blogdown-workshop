@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Up and Running with Blogdown</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Alison Presmanes Hill" />
+    <meta name="date" content="2017-09-14" />
+    <link rel="stylesheet" href="my-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Up and Running with Blogdown
+## Portland R User Group
+### Alison Presmanes Hill
+### 2017-09-14
+
+---
+
+
+
+
+class: inverse, center, middle
+
+&lt;iframe src="https://giphy.com/embed/jWRGIOH6dDZXG" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href="https://giphy.com/gifs/jWRGIOH6dDZXG"&gt;&lt;/a&gt;&lt;/p&gt;
+
+---
+
+class: inverse, center, middle
+
+# Get Started
+
+---
+
+# Install **blogdown**
+
+`blogdown` was released on CRAN this week!
+
+
+```r
+install.packages("blogdown")
+```
+
+The development version:
+
+```r
+if (!requireNamespace("devtools")) install.packages("devtools")
+devtools::install_github("rstudio/blogdown")
+```
+
+
+---
+
+# Install Hugo using **blogdown**
+
+
+```r
+blogdown::install_hugo()
+# or
+library(blogdown)
+install_hugo()
+```
+
+Other relevant functions:
+
+```r
+blogdown::update_hugo() # force an update
+blogdown::hugo_version() # check version
+```
+
+
+---
+
+class: inverse, center, middle
+
+# Make a site
+
+---
+
+# Create a new R Project
+
+You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
+
+- Create a new R Project from the menu `File -&gt; New Project -&gt; New Directory`
+
+---
+
+# Update R Project Options
+
+https://bookdown.org/yihui/blogdown/rstudio-ide.html#fig:project-options
+
+![](images/rstudio-project-options.png)
+
+---
+
+# Updated RStudio Project Templates
+
+https://blog.rstudio.com/2017/09/13/rstudio-v1.1---the-little-things/
+
+![](images/rstudio-project-templates.png)
+
+Note: you'll be able to install Hugo automatically if you use this method.
+
+
+---
+
+# Build your site
+
+- Default theme (*we will work with this tonight*)
+
+
+```r
+blogdown::new_site() 
+```
+
+--
+
+- Different theme
+
+
+```r
+blogdown::new_site(theme = "gcushen/hugo-academic", 
+                   theme_example = TRUE)
+```
+
+--
+
+- Change your mind
+    
+
+```r
+blogdown::install_theme("gcushen/hugo-academic", 
+                        theme_example = TRUE, 
+                        update_config = TRUE)
+```
+
+---
+
+class: inverse, middle, center
+
+# Explore your site
+
+
+---
+
+# Hello Hugo
+
+![](images/hello-hugo.png)
+
+---
+
+# Hugo Directory Structure
+
+https://gohugo.io/getting-started/directory-structure/
+
+Know your way around:
+
+```
+.
+├── archetypes
+├── config.toml
+├── content
+├── data
+├── layouts
+├── static
+└── themes
+```
+
+
+---
+
+# Overriding vs editing
+
+https://gohugo.io/themes/customizing/
+
+&gt; *When you use a theme cloned from its git repository, do not edit the theme’s files directly. Instead, theme customization in Hugo is a matter of overriding the templates made available to you in a theme. This provides the added flexibility of tweaking a theme to meet your needs while staying current with a theme’s upstream.*
+
+--
+
+Note which folders are *empty* at the top level of your project:
+```
+.
+├── archetypes &lt;&lt;-
+├── config.toml
+├── content
+├── data &lt;&lt;-
+├── layouts &lt;&lt;-
+├── static &lt;&lt;-
+└── themes
+```
+
+---
+
+# Serve site
+
+- Console
+
+```r
+blogdown::serve_site()
+```
+
+--
+
+- or RStudio Addin (*recommended*)
+
+---
+
+# LiveReLoad
+
+https://bookdown.org/yihui/blogdown/a-quick-example.html
+
+1. Edit + save triggers
+
+--
+
+1. Blocks your console **by design**
+
+--
+
+1. Don't try to view in your *teeny tiny* RStudio viewer; click: `Show in new window`
+
+---
+
+class: inverse, middle, center
+
+# Edit your site
+
+
+---
+
+# Edit 1: add a logo
+
+1. Move `01-images` folder to `static/`
+
+--
+
+1. Rename folder `images/` (so now you have a `static/images/` folder with 2 .png files in it)
+
+--
+
+1. Update `config.toml` and save
+
+```toml
+    [params.logo]
+    url = "rladies-r-logo.png" &lt;&lt;-
+    width = 50
+    height = 50
+    alt = "Logo"
+```
+
+---
+
+class: center
+
+# Edit 1: did we add a logo?
+
+![](images/edit1-outcome.png)
+
+---
+
+# Edit 1: did we learn something?
+
+Yes!
+
+--
+
+We saw:
+
+`/themes/&lt;THEME&gt;/static/images/logo.png`
+
+--
+
+Could be overwritten by:
+
+`/static/images/&lt;rladies-r-logo.png&gt;`
+
+--
+
+The filename `&lt;rladies-r-logo.png&gt;` could have been anything, because there is a place to specify the url in the `config.toml` file
+
+&gt; *This only works for templates that Hugo “knows about” (i.e., that follow its convention for folder structure and naming). If a theme imports template files in a creatively named directory, Hugo won’t know to look for the local /layouts first.*
+
+https://gohugo.io/themes/customizing/
+
+---
+
+# Edit 2: update the "About" page
+
+1. Move `02-about.md` file to `content/`
+
+--
+
+1. Delete the existing file `about.md`
+
+--
+
+1. Rename `02-about.md` --&gt; `about.md` &lt;sup&gt;1&lt;sup&gt;
+
+
+.footnote[
+[1] you should still have *LiveReLoad* running...
+]
+
+---
+
+class: center
+
+# Edit 2: did we change the about page?
+
+![](images/edit2-outcome.png)
+
+---
+
+# Edit 3: basic configurations
+
+- Note the last line 😉
+
+```toml
+baseurl = "/"
+languageCode = "en-us"
+title = "R-Ladies PDX" &lt;&lt;-
+theme = "hugo-lithium-theme"
+googleAnalytics = ""
+disqusShortname = ""
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+enableEmoji = true &lt;&lt;-
+```
+
+--
+
+- In your "About" page, :heart: should now be ❤️
+
+
+---
+
+# Edit 4: edit the main menu
+
+```toml
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 1 &lt;&lt;-
+[[menu.main]]
+    name = "Meetups" &lt;&lt;-
+    url = "https://www.meetup.com/R-Ladies-PDX/" &lt;&lt;-
+    weight = 2 &lt;&lt;-
+[[menu.main]]
+    name = "Twitter"
+    url = "https://twitter.com/RLadiesPDX" &lt;&lt;-
+    weight = 3 &lt;&lt;-
+```
+
+---
+
+class: center
+
+# Edit 4: did we change the navigation bar + links?
+
+![](images/edit4-outcome.png)
+
+
+---
+
+# Edit 5: customize CSS
+
+1. In `static/` create a new directory `css`
+
+--
+
+1. Move `05-rladies.css` file to `static/css/`
+
+--
+
+1. Rename `05-rladies.css` --&gt; `rladies.css`
+
+--
+
+1. In `config.toml`, add last line: &lt;sup&gt;1&lt;/sup&gt;
+
+```toml
+[params]
+    description = "A website built through Hugo and blogdown."
+    customCSS = ["css/rladies.css"] &lt;&lt;-
+```
+
+
+.footnote[
+[1] how did I know the name of this parameter? 🕵🏽
+/themes/&lt;THEME&gt;/layouts/partials/head.html
+]
+
+---
+
+class: center
+
+# Edit 5: did we change the CSS?
+
+![](images/edit5-outcome.png)
+
+---
+
+# Edit 6: add font awesome icons
+
+You know the drill now- always remove my numbers, `##-`, that are prepended to filename
+
+1. Move `font-awesome.min.css` to `static/css/`
+
+1. Create a new directory in `layouts/` called `partials/`
+
+1. Move other `head_custom.html` and `nav.html` to `layouts/partials/` 
+  - Why? Let's open them up and take a look
+
+---
+
+# Edit 6: final steps to add icons
+
+Make changes to these sections in your `config.toml`:
+
+```toml
+[[menu.main]]
+    name = "About"
+    pre = "" &lt;&lt;-
+    url = "/about/"
+    weight = 1
+[[menu.main]]
+    name = "Meetups"
+    pre = "fa-meetup" &lt;&lt;-
+    url = "https://www.meetup.com/R-Ladies-PDX/" &lt;&lt;-
+    weight = 2
+[[menu.main]]
+    name = "Twitter"
+    pre = "fa-twitter" &lt;&lt;-
+    url = "https://twitter.com/RLadiesPDX"
+    weight = 3
+    
+[params]
+    description = "A website built through Hugo and blogdown."
+    customCSS = ["css/rladies.css", "css/font-awesome.min.css"] &lt;&lt;-
+```
+
+---
+
+class: center
+
+# Edit 6: are there awesome icons?
+
+![](images/edit6-outcome.png)
+---
+
+# Edit 7: change the landing page
+
+---
+
+class: inverse, middle, center
+
+# Deploy your site
+
+---
+
+# I recommend Netlify
+
+![](images/yihui-deploy.png)
+
+
+---
+
+# Netlify build settings
+
+![](images/netlify-settings.png)
+
+---
+
+# Netlify site name
+
+![](images/netlify-site-name.png)
+
+---
+
+# rbind subdomains
+
+![](images/rbind-request.png)
+
+---
+
+class: center, middle
+
+# More resources
+
+A minimal website example using **blogdown**
+Site: https://blogdown-demo.netlify.com
+GitHub: https://github.com/apreshill/blogdown-demo
+
+Includes using citations in posts, including Rmd files of other output formats, and embedding htmlwidgets in posts
+
+---
+
+class: center, middle
+
+# Thanks!
+
+To Yihui and RStudio for the [**blogdown** package](https://cran.r-project.org/web/packages/blogdown/index.html)
+
+To Yihui and Amber for inviting me to be a co-author on the [**blogdown** book](https://bookdown.org/yihui/blogdown/)
+
+To the [`rbind`](https://github.com/rbind) group for awesome support
+
+To the R-Ladies PDX organizers, Augustina and Deeksha, for allowing me to use them as a guinea pig- join the [R-Ladies PDX meetup group](https://www.meetup.com/R-Ladies-PDX/)!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {window.dispatchEvent(new Event('resize'));});
+(function() {var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler"); if (!r) return; s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }"; d.head.appendChild(s);})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{{ partial "header" . }}
+
+<div class="intro">
+
+        <div><img class="center-image" src="images/R-LadiesGlobal_RBG_online_LogoWithText_Horizontal.png" width="50%"/></div>
+        
+        <h1>{{ .Site.Params.Chapter }}</h1>
+        
+        <h2>{{ markdownify .Site.Params.Description }}</h2>
+
+</div>
+
+
+{{ partial "footer" . }}
