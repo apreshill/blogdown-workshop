@@ -446,6 +446,7 @@ class: center
 # Edit 6: are there awesome icons?
 
 ![](images/edit6-outcome.png)
+
 ---
 
 # Edit 7: make a landing page
@@ -493,6 +494,41 @@ The lookup order for the homepage template is as follows:
 /themes/&lt;THEME&gt;/layouts/index.html
 /themes/&lt;THEME&gt;/layouts/_default/list.html
 ```
+
+---
+
+class: center
+
+# Edit 7: do we have a new landing page?
+
+![](images/edit7-outcome.png)
+
+
+---
+
+# Edit 8: hey wait! where are my posts?
+
+How can we get them back?
+
+--
+
+Try this in the `config.toml` file: 
+
+```toml
+[[menu.main]]
+    name = "News"
+    pre = "fa-bullhorn"
+    url = "/post/"
+    weight = 4
+```
+
+---
+
+class: center
+
+# Edit 8: do we have news?
+
+![](images/edit8-outcome.png)
 
 ---
 

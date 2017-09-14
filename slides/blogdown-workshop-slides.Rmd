@@ -470,14 +470,6 @@ class: center
 
 ---
 
-class: center
-
-# Edit 7: do we have a new landing page?
-
----![](images/edit7-outcome.png)
-
-
-
 # Hugo homepage lookup order
 
 https://gohugo.io/templates/homepage/
@@ -490,6 +482,41 @@ The lookup order for the homepage template is as follows:
 /themes/<THEME>/layouts/index.html
 /themes/<THEME>/layouts/_default/list.html
 ```
+
+---
+
+class: center
+
+# Edit 7: do we have a new landing page?
+
+![](images/edit7-outcome.png)
+
+
+---
+
+# Edit 8: hey wait! where are my posts?
+
+How can we get them back?
+
+--
+
+Try this in the `config.toml` file: 
+
+```toml
+[[menu.main]]
+    name = "News"
+    pre = "fa-bullhorn"
+    url = "/post/"
+    weight = 4
+```
+
+---
+
+class: center
+
+# Edit 8: do we have news?
+
+![](images/edit8-outcome.png)
 
 ---
 
@@ -524,7 +551,9 @@ class: inverse, middle, center
 
 ---
 
-# Final edit: update `config.toml` baseurl
+# Final edit: update baseurl
+
+Top of your `config.toml`
 
 ```toml
 baseurl = "https://rladies-pdx.rbind.io/"
