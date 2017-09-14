@@ -434,9 +434,62 @@ class: center
 # Edit 6: are there awesome icons?
 
 ![](images/edit6-outcome.png)
+
 ---
 
-# Edit 7: change the landing page
+# Edit 7: make a landing page
+
+
+- Where should we move the file `index.html`?
+
+--
+
+- Move `index.html` --> `layouts/` <sup>1</sup>
+
+
+
+.footnote[
+[1] note- NOT to layouts/partials/
+]
+
+---
+
+# Edit 7: edit the landing page
+
+- Edit the `config.toml` file
+
+```toml
+[params]
+    description = "R-Ladies PDX is part of a world-wide organization 
+    to promote gender diversity in the R community. <br>
+    To find more details about the R-Ladies global initiative, 
+    visit [rladies.org](https://rladies.org)." <<-
+    chapter = "Portland, Oregon" <<-
+    customCSS = ["css/rladies.css", "css/font-awesome.min.css"] 
+```
+
+---
+
+class: center
+
+# Edit 7: do we have a new landing page?
+
+---![](images/edit7-outcome.png)
+
+
+
+# Hugo homepage lookup order
+
+https://gohugo.io/templates/homepage/
+
+The lookup order for the homepage template is as follows:
+
+```
+/layouts/index.html
+/layouts/_default/list.html
+/themes/<THEME>/layouts/index.html
+/themes/<THEME>/layouts/_default/list.html
+```
 
 ---
 

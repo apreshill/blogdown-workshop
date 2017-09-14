@@ -448,7 +448,51 @@ class: center
 ![](images/edit6-outcome.png)
 ---
 
-# Edit 7: change the landing page
+# Edit 7: make a landing page
+
+
+- Where should we move the file `index.html`?
+
+--
+
+- Move `index.html` --&gt; `layouts/` &lt;sup&gt;1&lt;/sup&gt;
+
+
+
+.footnote[
+[1] note- NOT to layouts/partials/
+]
+
+---
+
+# Edit 7: edit the landing page
+
+- Edit the `config.toml` file
+
+```toml
+[params]
+    description = "R-Ladies PDX is part of a world-wide organization 
+    to promote gender diversity in the R community. &lt;br&gt;
+    To find more details about the R-Ladies global initiative, 
+    visit [rladies.org](https://rladies.org)." &lt;&lt;-
+    chapter = "Portland, Oregon" &lt;&lt;-
+    customCSS = ["css/rladies.css", "css/font-awesome.min.css"] 
+```
+
+---
+
+# Hugo homepage lookup order
+
+https://gohugo.io/templates/homepage/
+
+The lookup order for the homepage template is as follows:
+
+```
+/layouts/index.html
+/layouts/_default/list.html
+/themes/&lt;THEME&gt;/layouts/index.html
+/themes/&lt;THEME&gt;/layouts/_default/list.html
+```
 
 ---
 
@@ -480,6 +524,14 @@ class: inverse, middle, center
 # rbind subdomains
 
 ![](images/rbind-request.png)
+
+---
+
+# Final edit: update `config.toml` baseurl
+
+```toml
+baseurl = "https://rladies-pdx.rbind.io/"
+```
 
 ---
 
