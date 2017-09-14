@@ -1,5 +1,5 @@
 ---
-title: "Up and Running with Blogdown"
+title: "Up and Running with blogdown"
 subtitle: "Portland R User Group"
 author: "Alison Presmanes Hill"
 date: "2017-09-14"
@@ -570,6 +570,9 @@ Site: https://blogdown-demo.netlify.com
 GitHub: https://github.com/apreshill/blogdown-demo
 
 Includes using citations in posts, including Rmd files of other output formats, and embedding htmlwidgets in posts
+
+View the actual demo site:
+https://rladies-pdx.rbind.io
 
 ---
 
