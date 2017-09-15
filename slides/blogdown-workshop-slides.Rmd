@@ -11,11 +11,23 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+    includes:
+      in_header: header.html
 ---
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
+
+class: inverse, center, middle
+
+<a href="mailto:hillali@ohsu.edu"><i class="fa fa-paper-plane fa-fw"></i>&nbsp; hillali@ohsu.edu</a><br>
+<a href="https://apreshill.rbind.io"><i class="fa fa-link fa-fw"></i>&nbsp; apreshill.rbind.io</a><br>
+<a href="http://twitter.com/apreshill"><i class="fa fa-twitter fa-fw"></i>&nbsp; @apreshill</a><br>
+<a href="http://github.com/apreshill"><i class="fa fa-github fa-fw"></i>&nbsp; @apreshill</a><br>
+<a href="http://cslu.ohsu.edu"><i class="fa fa-map-marker fa-fw"></i>&nbsp; OHSU Center for Spoken Language Understanding</a>
+
+---
 
 class: inverse, center, middle
 

@@ -30,6 +30,11 @@ a, a > code {
   color: #FFFFFF;
   line-height: 1.0em;
 }
+.inverse a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 /* Two-column layout */
 .left-column {
   color: #777;
@@ -82,3 +87,4 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
     left: 0 !important;
   }
 }
+
