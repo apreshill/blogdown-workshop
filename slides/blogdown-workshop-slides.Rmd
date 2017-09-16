@@ -217,6 +217,7 @@ Know your way around:
 ├── archetypes
 ├── config.toml
 {{├── content}}
+|   └── posts
 ├── data
 ├── layouts
 ├── public
@@ -240,7 +241,7 @@ Know your way around:
 ├── public
 ├── static
 |   └──  css
-{{|      └──  style.css}}
+{{|        └──  style.css}}
 └── themes
 ```
 
@@ -425,7 +426,7 @@ class: center
 
 Yes!
 
-> *`content/` stores all content for your website... Each top-level folder in Hugo is considered a content section. For example, if your site has two main sections—blog posts and your about page— you will have 1 directory at `content/post/` and 1 file `content/about.md`.* 
+> *`/content/` stores all content for your website... Each top-level folder in Hugo is considered a content section. For example, if your site has two main sections—blog posts and your about page— you will have 1 directory at `content/post/` and 1 file `content/about.md`.* 
 
 https://gohugo.io/getting-started/directory-structure/
 
@@ -576,7 +577,7 @@ class: inverse, middle, center
 
 ```{r}
 [params]
-    description = "A website built through Hugo and blogdown."
+   description = "A website built through Hugo and blogdown."
 {{  customCSS = ["css/rladies.css"]}}
 ```
 
@@ -733,7 +734,7 @@ Could be overwritten by:
 
 --
 
-The `<PARTIALNAME>` in `layouts/` **must** match the name `<PARTIALNAME>` in `/themes/`; unless you want to edit how the partials are called within your templates:
+The `<PARTIALNAME>`s **must** match; unless you want to edit how the partials are called within your templates:
 
 
 ```{r}
@@ -750,6 +751,25 @@ class: inverse, middle, center
 
 
 ## <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit 7: make a homepage
+
+---
+
+# Edit #7: Hugo homepages
+
+https://gohugo.io/templates/homepage/
+
+The lookup order for the homepage template is as follows:
+
+```
+/layouts/index.html
+/layouts/_default/list.html
+/themes/<THEME>/layouts/index.html
+/themes/<THEME>/layouts/_default/list.html
+```
+
+--
+
+Which file on our site is currently serving as the homepage template?
 
 ---
 
@@ -781,29 +801,22 @@ Edit the `config.toml` file
     To find more details about the R-Ladies global initiative, 
     visit [rladies.org](https://rladies.org)."}}
 {{  chapter = "Portland, Oregon"}}
-    customCSS = ["css/rladies.css", "css/font-awesome.min.css"] 
+   customCSS = ["css/rladies.css", "css/font-awesome.min.css"] 
 ```
 
----
+--
 
-# Hugo homepage lookup order
+Note that the chapter parameter is *new*. Now, this is a variable that can be referenced in templates as:
 
-https://gohugo.io/templates/homepage/
+`{{ .Site.Params.Chapter }}`
 
-The lookup order for the homepage template is as follows:
 
-```
-/layouts/index.html
-/layouts/_default/list.html
-/themes/<THEME>/layouts/index.html
-/themes/<THEME>/layouts/_default/list.html
-```
 
 ---
 
 class: center
 
-# Edit 7: do we have a new landing page?
+# Edit 7: do we have a new homepage?
 
 ![](images/edit7-outcome.png)
 
@@ -828,7 +841,7 @@ We can make one here that serves as the homepage:
 
 The filename `index.html` has special status in Hugo, and is **not** a partial layout template.
 
-You *could* also force a homepage by creating an `index.md` file that lives at the root of your `/content/` folder (i.e., `/content/_index.md`)
+You *could* also force a homepage by creating an `_index.md` file that lives at the root of your `/content/` folder (i.e., `/content/_index.md`)
 
 https://gohugo.io/templates/homepage/
 
@@ -850,7 +863,7 @@ How can we get them back? Ideas?
 
 --
 
-Try this in the `config.toml` file: 
+Try adding this in the `config.toml` file: 
 
 ```{toml}
 {{[[menu.main]]}}
@@ -887,10 +900,10 @@ Without any additional configuration, the following will just work:
 ```{r}
 .
 └── content
-    ├── post
-        ├── firstpost.md   // <- https://example.com/post/firstpost/
-        ├── happy
-            └── ness.md  // <- https://example.com/post/happy/ness/
+    └── post
+        ├── firstpost.md   <<- https://example.com/post/firstpost/
+        └── happy
+            └── ness.md  <<- https://example.com/post/happy/ness/
 ```
 
 
