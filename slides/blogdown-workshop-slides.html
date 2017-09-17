@@ -476,6 +476,10 @@ class: inverse, middle, center
 
 # Edit 3: enable emojis
 
+- Top of your `config.toml` file
+
+--
+
 - Note the last line 😉
 
 
@@ -889,11 +893,16 @@ Try adding this in the `config.toml` file:
 
 
 ```toml
+[[menu.main]]
+    name = "Twitter"
+    pre = "fa-twitter"
+    url = "https://twitter.com/RLadiesPDX"
+    weight = 3
 *[[menu.main]]
-*    name = "News"
-*    pre = "fa-bullhorn"
-*    url = "/post/"
-*    weight = 4
+*   name = "News"
+*   pre = "fa-bullhorn"
+*   url = "/post/"
+*   weight = 4
 ```
 
 ---
@@ -970,10 +979,25 @@ https://gohugo.io/hosting-and-deployment/hosting-on-netlify/
 
 ![](images/yihui-deploy.png)
 
+---
+
+class: inverse, middle, center
+
+# How to git from the start
+
+https://apreshill.rbind.io/post/up-and-running-with-blogdown/
 
 ---
 
-# Netlify build settings
+class: inverse, middle, center
+
+# How to git last
+
+http://happygitwithr.com/existing-github-last.html
+
+---
+
+# Netlify deploy settings
 
 ![](images/netlify-settings.png)
 
@@ -982,6 +1006,8 @@ https://gohugo.io/hosting-and-deployment/hosting-on-netlify/
 # Netlify site name
 
 This was the original site name: `shepherd-brushes-37154`
+
+On [Netlify](https://www.netlify.com), go into `General -&gt; Site details -&gt; Site information -&gt; Change site name` and update
 
 ![](images/netlify-site-name.png)
 
@@ -1002,6 +1028,8 @@ baseurl = "https://rladies-pdx.rbind.io/"
 ```
 
 On [Netlify](https://www.netlify.com), go into `Domain settings -&gt; Custom domain` and update
+
+![](images/netlify-custom.png)
 
 ---
 
