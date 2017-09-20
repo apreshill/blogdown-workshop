@@ -5,7 +5,7 @@ author: "Alison Presmanes Hill"
 date: "2017-09-14"
 output:
   xaringan::moon_reader:
-    css: "my-theme.css"
+    css: "rladies.css"
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -62,6 +62,38 @@ https://yihui.name/en/2017/06/netlify-instead-of-github-pages/
 ![](images/yihui-site.png)
 
 ![](images/yihui-blog.png)
+
+---
+
+class: inverse, center, middle
+
+# How to do this workshop
+
+## Just watch
+
+![](images/color.png)
+http://hyperboleandahalf.blogspot.com
+
+---
+
+class: inverse, center, middle
+
+# How to do this workshop
+
+## Do it with me
+
+![](images/interact.png)
+http://hyperboleandahalf.blogspot.com
+
+---
+
+class: inverse, center, middle
+
+# Do the workshop with me
+
+Download the workshop bundle materials from my github repo: https://github.com/apreshill/blogdown-workshop
+
+![](images/workshop-bundle.png)
 
 ---
 
@@ -967,7 +999,7 @@ https://apreshill.rbind.io/post/up-and-running-with-blogdown/
 
 class: inverse, middle, center
 
-# How to git last
+# How to git at the end
 
 http://happygitwithr.com/existing-github-last.html
 
