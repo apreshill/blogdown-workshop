@@ -5,7 +5,7 @@ author: "Alison Presmanes Hill"
 date: "2017-09-14"
 output:
   xaringan::moon_reader:
-    css: "rladies.css"
+    css: ["default", "rladies", "rladies-fonts"]
     lib_dir: libs
     nature:
       highlightStyle: github
